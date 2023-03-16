@@ -21,10 +21,15 @@ const getReviews = async (movieId) => {
     const response = await axios.get(`/movie/${movieId}/reviews?api_key=${KEY}&language=en-US&page=1`);
     return response.data;
 };
+const getSerchMovie = async (query) => {
+    const response = await axios.get(`/search/movie?api_key=${KEY}&language=en-US&page=1&query=${query}`);
+    return response.data.results;
+};
 
 export const API = {
     getTrending,
     getMovie,
     getCredits,
-    getReviews
+    getReviews,
+    getSerchMovie
 }

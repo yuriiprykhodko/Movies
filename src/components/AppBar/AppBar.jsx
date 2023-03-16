@@ -1,10 +1,17 @@
 import { Navigation } from "components/Navigation/Navigation";
-import { Header } from "./AppBar.styled";
+import { Suspense } from "react";
+import { Outlet } from "react-router-dom";
+import { Container, Header } from "./AppBar.styled";
 
 export const AppBar = (params) => {
-    return (
+  return (
+      <Container>
         <Header>
                   <Navigation />
-        </Header>
+      </Header>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+        </Suspense>
+      </Container>
   )
 }
